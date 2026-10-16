@@ -49,7 +49,7 @@ final class IdFilterTest extends FilterWithQueryBuilderTestCase
             'field_name' => self::DEFAULT_FIELD_NAME,
         ]);
 
-        $queryBuilder = $this->getQueryBuilder();
+        $queryBuilder = $this->getQueryBuilderStub();
 
         $builder = new ProxyQuery($queryBuilder);
 

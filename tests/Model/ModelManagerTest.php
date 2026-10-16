@@ -358,7 +358,7 @@ final class ModelManagerTest extends TestCase
         $repository->expects(static::once())->method('find')->with('the-id')->willReturn($expected);
 
         $dm = $this->createMock(DocumentManager::class);
-        $dm->method('getRepository')->with(TestDocument::class)->willReturn($repository);
+        $dm->expects(static::once())->method('getRepository')->with(TestDocument::class)->willReturn($repository);
 
         $this->registry
             ->method('getManagerForClass')
@@ -377,7 +377,7 @@ final class ModelManagerTest extends TestCase
         $repository->expects(static::once())->method('findBy')->with(['name' => 'A'])->willReturn($expected);
 
         $dm = $this->createMock(DocumentManager::class);
-        $dm->method('getRepository')->with(TestDocument::class)->willReturn($repository);
+        $dm->expects(static::once())->method('getRepository')->with(TestDocument::class)->willReturn($repository);
 
         $this->registry
             ->method('getManagerForClass')
@@ -396,7 +396,7 @@ final class ModelManagerTest extends TestCase
         $repository->expects(static::once())->method('findOneBy')->with(['name' => 'A'])->willReturn($expected);
 
         $dm = $this->createMock(DocumentManager::class);
-        $dm->method('getRepository')->with(TestDocument::class)->willReturn($repository);
+        $dm->expects(static::once())->method('getRepository')->with(TestDocument::class)->willReturn($repository);
 
         $this->registry
             ->method('getManagerForClass')
