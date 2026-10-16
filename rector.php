@@ -26,7 +26,7 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__.'/tests',
     ]);
 
-    // Track the project's PHP 8.4 / PHPUnit 12 floor.
+    // Track the project's PHP 8.4 / PHPUnit 13 floor.
     // Rector 2.6 no longer ships versioned PHPUnit sets (PHPUNIT_100 … PHPUNIT_120);
     // PHPUNIT_CODE_QUALITY covers the same ground against the installed PHPUnit.
     $rectorConfig->sets([

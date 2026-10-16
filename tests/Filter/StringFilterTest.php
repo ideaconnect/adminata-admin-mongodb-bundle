@@ -172,6 +172,7 @@ final class StringFilterTest extends FilterWithQueryBuilderTestCase
 
         $queryBuilder = $this->createMock(Builder::class);
         $queryBuilder
+            ->expects(static::once())
             ->method('field')
             ->with('field_name')
             ->willReturnSelf();

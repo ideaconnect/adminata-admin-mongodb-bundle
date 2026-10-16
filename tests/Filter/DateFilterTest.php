@@ -81,7 +81,7 @@ final class DateFilterTest extends FilterWithQueryBuilderTestCase
         $date = new \DateTime('2016-08-31 12:00:00');
         $originalTimestamp = $date->getTimestamp();
 
-        $filter->apply(new ProxyQuery($this->getQueryBuilder()), FilterData::fromArray(['value' => $date]));
+        $filter->apply(new ProxyQuery($this->getQueryBuilderStub()), FilterData::fromArray(['value' => $date]));
 
         static::assertSame(
             $originalTimestamp,
@@ -137,7 +137,7 @@ final class DateFilterTest extends FilterWithQueryBuilderTestCase
         $this->expectExceptionMessageMatches('/"3", "1", "2", "4", "5"/');
 
         $filter->apply(
-            new ProxyQuery($this->getQueryBuilder()),
+            new ProxyQuery($this->getQueryBuilderStub()),
             FilterData::fromArray([
                 'type' => 9_999_999,
                 'value' => new \DateTime('2020-01-01'),
