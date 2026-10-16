@@ -24,7 +24,7 @@ final class CallbackFilterTest extends FilterWithQueryBuilderTestCase
 {
     public function testFilterClosureEmpty(): void
     {
-        $builder = new ProxyQuery($this->getQueryBuilder());
+        $builder = new ProxyQuery($this->getQueryBuilderStub());
 
         $filter = new CallbackFilter();
         $filter->initialize('field_name', [
@@ -39,7 +39,7 @@ final class CallbackFilterTest extends FilterWithQueryBuilderTestCase
 
     public function testFilterClosureNotEmpty(): void
     {
-        $builder = new ProxyQuery($this->getQueryBuilder());
+        $builder = new ProxyQuery($this->getQueryBuilderStub());
 
         $filter = new CallbackFilter();
         $filter->initialize('field_name', [
@@ -54,7 +54,7 @@ final class CallbackFilterTest extends FilterWithQueryBuilderTestCase
 
     public function testFilterMethodEmpty(): void
     {
-        $builder = new ProxyQuery($this->getQueryBuilder());
+        $builder = new ProxyQuery($this->getQueryBuilderStub());
 
         $filter = new CallbackFilter();
         $filter->initialize('field_name', [
@@ -69,7 +69,7 @@ final class CallbackFilterTest extends FilterWithQueryBuilderTestCase
 
     public function testFilterMethodNotEmpty(): void
     {
-        $builder = new ProxyQuery($this->getQueryBuilder());
+        $builder = new ProxyQuery($this->getQueryBuilderStub());
 
         $filter = new CallbackFilter();
         $filter->initialize('field_name', [
@@ -92,7 +92,7 @@ final class CallbackFilterTest extends FilterWithQueryBuilderTestCase
 
     public function testFilterException(): void
     {
-        $builder = new ProxyQuery($this->getQueryBuilder());
+        $builder = new ProxyQuery($this->getQueryBuilderStub());
 
         $filter = new CallbackFilter();
         $filter->initialize('field_name', []);
@@ -104,7 +104,7 @@ final class CallbackFilterTest extends FilterWithQueryBuilderTestCase
 
     public function testFilterThrowsWhenCallbackReturnsNonBoolScalar(): void
     {
-        $builder = new ProxyQuery($this->getQueryBuilder());
+        $builder = new ProxyQuery($this->getQueryBuilderStub());
 
         $filter = new CallbackFilter();
         $filter->initialize('field_name', [
@@ -125,7 +125,7 @@ final class CallbackFilterTest extends FilterWithQueryBuilderTestCase
 
     public function testFilterThrowsWhenCallbackReturnsNonBoolObject(): void
     {
-        $builder = new ProxyQuery($this->getQueryBuilder());
+        $builder = new ProxyQuery($this->getQueryBuilderStub());
 
         $filter = new CallbackFilter();
         $filter->initialize('field_name', [

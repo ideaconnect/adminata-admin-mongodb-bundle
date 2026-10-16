@@ -105,9 +105,9 @@ We **intentionally diverge** from upstream:
 | Doctrine ODM | `^2.6` |
 | Doctrine ODM Bundle | `^5.0` |
 | Doctrine Persistence | `^4.0` (3.x dropped on the 5.x cut) |
-| Doctrine Collections | `^2.0` |
+| Doctrine Collections | `^2.0 \|\| ^3.1` |
 | adminata | `dev-main` (7.x is built on adminata's `IDCT\Adminata\` names) |
-| PHPUnit | 11 / 12 (suite written for 12's strictness) |
+| PHPUnit | 13 (suite written for 13's strictness: no `with()` without `expects()`, which PHPUnit 14 rejects) |
 
 Quality gates currently green:
 
@@ -278,7 +278,9 @@ When adding a filter:
    be auto-selected for some ODM mapping type.
 5. Cover it in `tests/Filter/<Name>FilterTest.php`. The shared
    `FilterWithQueryBuilderTestCase` mocks an ODM Builder + Expr stub for
-   you.
+   you: `getQueryBuilder()` for tests that set expectations on the builder,
+   `getQueryBuilderStub()` for tests that only hand it to the filter (PHPUnit
+   13 reports a notice for a mock left without expectations).
 
 Filter input always arrives as `IDCT\Adminata\Filter\Model\FilterData`;
 always check `$data->hasValue()` before reading and guard against malformed
